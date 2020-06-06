@@ -1,0 +1,132 @@
+.carousel-item {
+  height: 78vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.fa-pull-center {
+  float: center;
+}
+
+
+/* -----------------------------------------------
+------------ Estrellas de valoración -------------
+----------------------------------------------- */
+
+.stars-fieldset {
+width: 100px;
+border: none;
+font-weight: bold;
+font-size: 14px;
+}
+
+.stars {
+width: 100px;
+height: 25px;
+display: block;
+background: url(img/estrellas.png) 0 0 no-repeat;
+}
+
+
+.stars-0 { background-position: -100px -0; }
+.stars-5 { background-position: -81px -21px; }
+.stars-10 { background-position: -81px 0; }
+.stars-15 { background-position: -61px -21px; }
+.stars-20 { background-position: -60px 0; }
+.stars-25 { background-position: -40px -21px; }
+.stars-30 { background-position: -40px 0; }
+.stars-35 { background-position: -21px -21px; }
+.stars-40 { background-position: -21px 0; } 
+.stars-45 { background-position: 0 -21px; }
+.stars-50 { background-position: 0 0; }
+
+
+.social-icons li a {
+  margin-right: 10px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  padding: 7px;
+  background: #fff;
+}
+.social-icons{
+	font-size: 35px;
+}
+
+.mapa-icons{
+font-size: 60px;
+}
+
+.redes-icons{
+	font-size: 50px;
+}
+
+.despla{
+	font-size: 5px;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+	padding-right: 1px;
+
+}
+
+input{
+	padding:1px 1px 1px 40px;
+
+}
+
+.buscar{
+	width: 400px;
+	margin-left: 50px;
+	border-radius:1px;
+	border solid #333;
+}
+
+input{
+	color: #666;
+	border: none;
+}
+
+
+
+.boton{
+	border-radius:1px;
+	border: none;
+	background-color: #85C1E9;
+}
+
+.boton i{
+	color: white;
+}
+
+
+.servi{
+	border-radius: 1px;
+	box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.servi h2{
+	font-size: 18px;
+	color: black;
+}
+
+
+.lateral {
+	background-color: #DCDCDC;
+}
+
+.listservi{
+}
+
+
+.lista{
+border-radius: 0px;
+box-shadow:  0 2px 0 rgba(1, 1, 1, 0.1);
+overflow: hidden;
+}

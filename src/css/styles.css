@@ -1,0 +1,536 @@
+/*-------------
+ 	General
+-------------*/
+
+@font-face {
+  font-family: 'roboto';
+  font-style: normal;
+  src: url(../font/roboto.woff) format('woff');
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html{
+	font-family: 'roboto', roboto;
+	font: normal 14px roboto, "roboto";
+	color: #555;
+}
+
+ul, nav{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+	cursor: pointer;
+
+	opacity: 0.9;
+}
+
+a:hover{
+	opacity: 1;
+	color: white;
+	text-decoration: none;
+}
+
+hr{
+	width: 150px;
+	height: 2px;
+	background-color: #2196F3;
+	border: 0;
+	margin-bottom: 80px;
+}
+
+.section-1{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 125px 100px;
+}
+
+.section-2{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@media (max-width: 1000px){
+
+	.section-1 {
+		padding: 100px 50px;
+	}
+
+	.section-2{
+		padding: 100px 50px;
+	}
+
+}
+
+@media (max-width: 600px){
+
+	.section-1{
+		padding: 80px 30px;
+	}
+
+	.section-2{
+		padding: 80px 30px;
+	}
+
+}
+
+section h3.title{
+	color: #414a4f;
+	text-transform: capitalize;
+	font: bold 25px 'Roboto', roboto;
+	margin-bottom: 35px;
+	text-align: center;
+}
+
+section p{
+	max-width: 800px;
+	text-align: center;
+	margin-bottom: 35px;
+	padding: 0 20px;
+	line-height: 2;
+}
+
+div.grid{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+
+/*-------------
+ 	Header
+-------------*/
+
+header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #fff;
+	padding: 35px 100px 0;
+}
+
+header h2{
+	font-family: 'roboto', roboto;
+}
+
+header nav{
+	display: flex;
+}
+
+header nav li{
+	margin: 0 15px;
+}
+
+header nav li:first-child{
+	margin-left: 0;
+}
+
+header nav li:last-child{
+	margin-right: 0;
+}
+
+@media (max-width: 1000px){
+	header{
+		padding: 20px 50px;
+	}
+}
+
+
+@media (max-width: 700px){
+	header{
+		flex-direction: column;
+	}
+
+	header h2{
+		margin-bottom: 15px;
+	}
+}
+
+
+
+/*----------------
+ 	Hero Section
+----------------*/
+
+.hero{
+	position: relative;
+	justify-content: center;
+	min-height: 100vh;
+	color: #fff;
+	text-align: center;
+}
+
+.hero .background-image{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-color: #2196F3;
+}
+
+.hero .background-image:after{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #414a4f;
+}
+
+.hero h1{
+	font: bold 40px 'roboto' , roboto;
+	margin-bottom: 15px;
+}
+
+.hero h3{
+	font: normal 15px 'roboto' , roboto;
+	margin-bottom: 30px;
+}
+
+.hero a.btn{
+	padding: 20px 46px;
+}
+
+@media (max-width: 800px){
+
+	.hero{
+		min-height: 600px;
+	}
+
+	.hero h1{
+		font-size: 48px;
+	}
+
+	.hero h3{
+		font-size: 24px;
+	}
+
+	.hero a.btn{
+		padding: 15px 40px;
+	}
+
+}
+
+
+/*--------------------
+ 	Our Work Section
+---------------------*/
+
+.оur-work{
+	background-color: #fff;
+}
+
+.our-work .grid div{
+	height: 300px;
+	background-clip: content-box;
+	background-size: cover;
+	background-position: center;
+}
+
+.our-work .grid div.small{
+	flex-basis: 25%;
+}
+
+.our-work .grid div.medium {
+	flex-basis: 50%;
+}
+
+.our-work .grid div.large{
+	flex-basis: 75%;
+}
+
+
+@media (max-width: 1000px){
+
+	.our-work .grid div.small,
+	.our-work .grid div.medium,
+	.our-work .grid div.large{
+		flex-basis: 100%;
+	}
+
+}
+
+.contenedor {
+	background-color: #1AB6DF;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.centrar {
+	color: white;
+	font-family: roboto, "roboto";
+	font-size: 20px;
+	text-align: center;
+}
+
+.boton {
+	font-weight: bold;
+	margin-top: 30px;
+	color: white;
+	width: 100px;
+	height: 30px;
+	background-color: transparent;
+	border: 1px solid white;
+	outline: none;
+}
+
+.boton a {
+	font-style: normal;
+	color: white;
+	text-decoration: none;
+}
+
+.contenedor-info {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+}
+
+.info-local {
+	color: white;
+	padding-bottom: 13px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.precio {
+	color: #1AB6DF;
+	font-size: 25px;
+	font-weight: bold;
+	padding-bottom: 18px;
+	padding-right: 13px;
+	padding-left: 10px;
+}
+
+.direccion {
+	font-size: 13px;
+}
+
+/*
+|--------------------------------- |
+|         CATEGORIAS               |
+| ALTURA DE LOS ITEMS DE CATEGORIAS|
+|----------------------------------|
+*/
+
+.alto {
+	height: 100px;
+}
+
+.text-category {
+	color: #1AB6DF;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+
+
+/*
+|--------------------------------- |
+|           COMO USAR              |
+|ESTILOS PARA LA PARTE DE COMO USAR|
+|----------------------------------|
+*/
+
+.section-3{
+	width: 100%;
+	height: 550px;
+	background-color: #3A4849;
+	background-clip: content-box;
+	background-size: cover;
+	background-position: center;
+	color: white;
+}
+
+.este {
+	color: #1AB6DF;
+	font-weight: bold;
+}
+
+.info {
+	color: #1AB6DF;
+	font-weight: bold;
+	font-size: 15px;
+	margin-left: 20px;
+}
+
+.info-icon {
+	height: 50px;
+	width: 50px;
+}
+
+.alto {
+	padding-top: 60px;
+}
+
+.info-1 {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.info-1:first-child {
+	padding-top: 10px;
+}
+
+.info-content {
+	position: absolute;
+}
+
+/*CINTA*/
+
+.cinta {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 120px;
+	background-color: #364143;
+
+	/*background-image: url(../img/cinta.jpg);*/
+}
+
+.cinta-1 {
+	color: white;
+	font-size: 15px;
+	height: 30px;
+	width: 30%;
+	text-align: center;
+	background-color: #1AB6DF;
+}
+
+/* TOP VACACIONES*/
+
+.cinta-2{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 120px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+.top-item{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.top-content {
+	height: 270px;
+	background-clip: content-box;
+	background-size: cover;
+	background-position: center;
+	flex-basis: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 20px;
+	font-family: roboto;
+}
+
+.mapa {
+	background-image: url(../img/cambur.jpg);
+	background-clip: content-box;
+	background-size: cover;
+	background-position: center;
+	height: 600px;
+}
+
+.boton-2 {
+	border: 2px solid white;
+	border-radius: 3px;
+}
+
+
+input:focus {
+   text-decoration: none;
+   outline: 0px;
+   border-bottom: 2px solid #ffffff;
+ }
+
+
+	.logo-1, .title {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.title {
+   margin-top: 0.5rem;
+}
+
+	.formulario, .ingresar-otros {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+	
+
+.enter-input {
+   width: 250px;
+   margin-top: 0.25rem;
+   padding-bottom: 0.25rem;
+   border-top: none;
+   border-right: none;
+   border-left: none;
+   border-bottom: 2px solid #ffffff61;
+   background-color: transparent;
+   color: #ffffff;
+}
+.subtitle {
+   font-weight: bold;
+   font-size: 25px;
+   margin-top: 0.5rem;
+   color: white;
+}
+
+.subtitle-2{
+   margin-top: 0.25rem;
+   font-weight: 500;
+   font-size: 15px;
+   color: white;
+}
+
+.title-input {
+	color: white;
+    margin-top: 1.5rem;
+    font-size: 11px;
+}
+.botones {
+   margin-top: 1.5rem;
+   display: flex;
+   justify-content: space-around;
+}
+
+.boton-2{
+    width: 100px;
+    height: 30px;
+    background: #ffffff;
+    border: 2px solid white;
+    color: #transparent;
+    font-weight: 700;
+}

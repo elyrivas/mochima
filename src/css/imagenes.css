@@ -1,0 +1,15 @@
+.oscurecer:hover {
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    )
+}
+
+.circular {
+  border-radius: 50%;
+}
+
+.derecha{
+	margin-right: -30px;
+}

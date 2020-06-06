@@ -1,0 +1,125 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background:white;
+}
+ 
+header {
+	background:#323a3c;
+	padding:10px;
+	/* Flexbox */
+	display: flex;
+	/*Separa nuestro logo, de la barra de busqueda y la barra de busqueda de nuestro menu de navegacion*/
+	justify-content:space-between;
+	
+}
+ 
+
+header .logo a {
+	color:white;
+	font-family: 'roboto', roboto;
+	text-decoration: none;
+
+}
+
+
+.btn-barra{
+	background-color: #3ca8d9;
+	color:white;
+	font-family: Arial Rounded MT Bold;
+}
+
+.dropdown{
+	background-color: #3ca8d9;
+	color:white;
+	border-radius: 10px;
+}
+
+.nav{
+	justify-content: space-around;
+	font-family: arial;
+	color: #3ca8d9;
+}
+
+.carousel{
+	align-items: flex-start;
+}
+
+.top-content {
+	height: 250px;
+	background-size: cover;
+	color: white;
+	font-size: 20px;
+}
+
+/*---ARTICULOS--*/
+
+.articulo{
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+    margin-top: 20px;
+	}
+
+.articulo .titulo-articulo a{
+	color: #333;
+
+}
+
+
+
+.articulo .contenedor-botones{
+	width: 100%;
+}
+
+.btn-group{
+	background-color: #323a3c;
+	color:white;
+}
+
+.nav-link{
+	align-self: stretch;
+}
+
+.jumbotron{
+	background-color: white;
+}
+.container a{
+    text-decoration: none;
+	color: #3ca8d9;
+}
+
+.list-group{
+  margin-top: 70px;
+}
+
+.sitios{
+	text-align: center;
+	font-family: Arial Rounded MT Bold;
+}
+
+.promocion , a{
+	color:#3ca8d9;
+	text-decoration: none;
+	font-family: Arial Rounded MT Bold;
+}
+
+footer{
+    margin-top: 400px;
+    padding: 50px;
+    text-align: center;
+    background: #323a3c;
+}
+
+footer p{
+	color: white;
+	margin-top: 30px;
+}
+
+
+
+
+
