@@ -1,7 +1,7 @@
 <?php
 
 if (!$_SESSION["validarA"]) {
-   header ("location:index.php?action=inicio");
+   heheader ("location:401.php");
    exit();
 }
 

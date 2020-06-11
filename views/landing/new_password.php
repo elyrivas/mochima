@@ -1,7 +1,6 @@
 <?php
 	if (!$_SESSION["reset"]=="pass") {
-		echo 'paju';
-		header ("location:index.php?action=inicio");
+		header ("location:401.php");
 		exit();
 	}
 
@@ -70,7 +69,7 @@
 		position: relative;
 		width: 100%;
 		height: 100vh;
-		
+
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -108,21 +107,21 @@
 		</div>
 		<form action="?action=new_password" method="post">
         	<div class="d-flex  justify-content-center">
-        		<input type="text" name="new-password" class=" text-center bg-transparent text-white input-code">
+        		<input type="password" name="new-password" class=" text-center bg-transparent text-white input-code">
         	</div>
         	<div class="d-flex  justify-content-center mt-4">
 				<input class="boton-2 mt-3 mb-4 bg-transparent text-white" type="submit" value="Enviar">
         	</div>
 
 		</form>
-              
+
 	</div>
 </div>
 <div class="prueba">
 	<div class="glass">
 	</div>
 </div>
-	
+
 
 
 

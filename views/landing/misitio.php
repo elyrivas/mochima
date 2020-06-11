@@ -1,7 +1,7 @@
 <?php
 
 if (!$_SESSION["validar"]) {
-   header ("location:index.php?action=inicio");
+   header ("location:401.php");
       exit();
 }
   $id_usuario=$_SESSION["id_usuario"];

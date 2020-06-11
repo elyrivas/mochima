@@ -26,24 +26,29 @@ QUE SE ENVIAN POR GET
             $module = "views/landing/".$enlacesModels.".php";
           }
 
-          else if ($enlacesModels=="dashboard"||
-                   $enlacesModels=="adminsitio"||
-                   $enlacesModels=="adminofertas"||
-                   $enlacesModels=="adminservicios"||
-                   $enlacesModels=="adminusuarios"||
-                   $enlacesModels=="adminreportes")
-          {
-             $module = "views/admin/".$enlacesModels.".php";
-          }
+      else if ($enlacesModels=="dashboard"||
+               $enlacesModels=="adminsitio"||
+               $enlacesModels=="adminofertas"||
+               $enlacesModels=="adminservicios"||
+               $enlacesModels=="adminusuarios"||
+               $enlacesModels=="adminreportes")
+      {
+         $module = "views/admin/".$enlacesModels.".php";
+      }
 
-          else if ($enlacesModels=="inicio")
-          {
-            $module = "views/template.php";
-          }
+      else if ($enlacesModels=="inicio")
+      {
+        $module = "views/template.php";
+      }
 
-          else {
-            $module = "views/template.php";
-          }
+      else if ($enlacesModels!="inicio")
+      {
+       $module="./404.php";
+      }
+
+      else {
+        $module = "views/template.php";
+      }
 
       return $module;
     }

@@ -1,0 +1,74 @@
+.boton-2 {
+	border: 2px solid white;
+	border-radius: 3px;
+}
+
+
+input:focus {
+   text-decoration: none;
+   outline: 0px;
+   border-bottom: 2px solid #ffffff;
+ }
+
+	.logo-1, .title {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.title {
+   margin-top: 0.5rem;
+}
+
+	.formulario, .ingresar-otros {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+	.enter-input {
+   width: 250px;
+   margin-top: 0.25rem;
+   padding-bottom: 0.25rem;
+   border-top: none;
+   border-right: none;
+   border-left: none;
+   border-bottom: 2px solid #ffffff61;
+   background-color: transparent;
+   color: #ffffff;
+}
+
+.subtitle {
+   font-weight: bold;
+   font-size: 25px;
+   margin-top: 0.5rem;
+   color: white;
+}
+
+.subtitle-2{
+   margin-top: 0.25rem;
+   font-weight: 500;
+   font-size: 15px;
+   color: white;
+}
+
+.title-input {
+	color: white;
+    margin-top: 1.5rem;
+    font-size: 11px;
+}
+.botones {
+   margin-top: 1.5rem;
+   display: flex;
+   justify-content: space-around;
+}
+
+.boton-2{
+    width: 100px;
+    height: 30px;
+    background: #ffffff;
+    border: 2px solid white;
+    color: #transparent;
+    font-weight: 700;
+}

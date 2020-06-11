@@ -258,9 +258,6 @@
 
 	<!--TOP LOS MAS VISITADOS-->
 	<section>
-		<div class="cinta-2">
-			<span>DESTINOS VACACIONALES</span>
-		</div>
 
 		<div class="top-sitios">
 			<div class="top-item">

@@ -1,5 +1,8 @@
 <?php
-
+if (!$_SESSION["validar"]) {
+   header ("location:401.php");
+   exit();
+}
 $estados=sitiosController::listarController($funcion="listar-estados");
 $tipos=sitiosController::listarController($funcion="listar-tipos");
 
@@ -25,7 +28,7 @@ if (isset($_POST["function"]) && $_POST["function"] =="crear") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en" >
+<html >
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,11 +39,12 @@ if (isset($_POST["function"]) && $_POST["function"] =="crear") {
 
   <link rel="stylesheet" href="src/css/style_sitio.css">
   <link rel="stylesheet" type="text/css" href="src/css/buscar.css">
-  <link rel="stylesheet" type="text/css" href="src/css/bootstrap.sitio.min.css">
+  <link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css">
 
   <link rel="stylesheet" type="text/css" href="src/css/bootstrap.wizard.min.css">
   <link rel="stylesheet" type="text/css" href="src/css/dropzone.min.css">
-  
+    <script src="src/js/all.min.js"></script>
+
   <script src="src/js/all.min.wizard.js"></script>
   
   <!-- CSS archivos -->
@@ -48,36 +52,42 @@ if (isset($_POST["function"]) && $_POST["function"] =="crear") {
 </head>
 <body>
 
-  <header class="barra ">
-    <div class="container-fluid">
-      <div class="row pt-2 ">
-        <div class="col-2 offset-1">
-          <a href="index.php">
-            <img class="pt-1" src="src/img/logo-m.png" alt="logo" height="30">
-          </a>
-        </div>
-        <div class="col-4 ">
-          <div class="input-group input-group-sm ancho-i pt-1" >
-            <div class="input-group-prepend ">
-              <span class="input-group-text bg-white "><i class="ni ni-pin-3 text-secondary"></i></span>
-            </div>
-            <input type="text" class="form-control input-sm">
-            <span class="input-group-append">
-              <button type="button" class="btn color-azul btn-sm"><i class="color-blanco ni ni-spaceship"></i></button>
-            </span>
-          </div>     </div>
-          <div class="col-4 offset-1">
-            <nav class="pt-1">
-              <ul class="menu d-flex flex-row  justify-content-end">
-                <li><a href="?action=inicio" class="text-white">Inicio</a></li>
-                <li><a href="#"  class="text-white">Ingresar</a></li>
-                <li><a href="?action=Salir" class="text-white">Salir</a></li>
-                <button type="button" class="boton-nav"> Tu Sitio</button>
-              </ul>
-            </nav>
+    <header class="barra">
+       <div class="row pt-2 mr-1">
+          <div class="col-2 offset-1">
+             <a href="index.php">
+                <img class="pt-1" src="src/img/logo-m.png" alt="logo" height="30">
+             </a>
           </div>
-        </div>
-      </div>
+          <div class="col-4 mt-1">
+              <form action=""  class="filtro-name" id="filtro-name">
+             <div class="input-group input-group-sm ancho-i" >
+                <div class="input-group-prepend ">
+                 <span class="input-group-text bg-white "><i class="ni ni-pin-3 text-secondary"></i></span>
+              </div>
+                <input type="text" class="form-control input-sm" name="filtro">
+                <span class="input-group-append">
+                <button type="submit" class="btn color-azul btn-info"><i class="color-blanco ni ni-spaceship"></i></button>
+                </span>
+             </div>   
+              </form>
+          </div>
+          <div class="col-5">
+             <nav class="pt-1 pr-4">
+                 <ul class="menu d-flex flex-row  justify-content-end">
+                   <li><a href="index.php" class="text-white">Inicio</a></li>
+                    <li><a class="text-white" href="?action=explorer">Explorar</a></li>
+                  <?php if (isset($_SESSION["validar"])): ?>
+                    <li><a class="text-white" href="?action=misitio">Mis sitios</a></li>
+                  <?php endif; ?>
+                  <?php if (isset($_SESSION["validar"])): ?>
+                    <li><a class="text-white" href="?action=contacto">Contacto</a></li>
+                  <?php endif; ?>
+                    <li><a class="text-white" href="?action=salir">Salir</a></li>
+                 </ul>
+             </nav>
+          </div>
+       </div>
     </header>
 
     <div class="container">
@@ -298,6 +308,12 @@ if (isset($_POST["function"]) && $_POST["function"] =="crear") {
 <script src="src/js/script_sitio.js"></script>
 <script src="src/js/dropzone.min.js"></script>
 <script src="src/js/ajax/ajax_p.js"></script>
+
+<script src="src/js/jquery-3.4.1.min.js"></script>
+<script src="src/js/popper.min.js"></script>
+<script src="src/js/bootstrap.min.js"></script>
+<script src="src/js/all.min.js"></script>
+
 <!-- <script src="src/js/ajax/gestorGaleria.js"></script> -->
 </body>
 </html> 

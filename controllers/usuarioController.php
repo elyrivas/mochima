@@ -6,6 +6,7 @@ CONTROLADOR ENCARGADO DE LAS FUNCIONES DEL USUARIOS
  */
 class UsuarioController
 {
+   
 
    public static function ingresoController()
    {
@@ -19,19 +20,26 @@ class UsuarioController
          $respuesta=$OUsuario->ingresoUsuarioModel();
 
          if ($respuesta==true) {
-          
+
             if ($respuesta["rol"]=="1") {
 
                $_SESSION["validarA"]=true;
                $_SESSION["id_usuario"]=$respuesta["id_usuario"];
                $_SESSION["nombre_usuario"]=$respuesta["nombre"];
-
-               header("location:index.php?action=dashboard"); 
+               $modulo="usuario";
+               $accion="inicio de sesion";
+               $descripcion="el usuario ".$_SESSION["nombre_usuario"]." ingreso al sistema";
+               $Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
+               header("location:index.php?action=dashboard");
 
             } elseif ($respuesta["rol"]=="2") {
                $_SESSION["validar"]=true;
                $_SESSION["id_usuario"]=$respuesta["id_usuario"];
                $_SESSION["nombre_usuario"]=$respuesta["nombre"];
+               $modulo="usuario";
+               $accion="inicio de sesion";
+               $descripcion="el usuario ".$_SESSION["nombre_usuario"]." ingreso al sistema";
+               $Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
                header("location:index.php?action=misitio");
             }
          } else {
@@ -42,7 +50,8 @@ class UsuarioController
 
    public function recuperarContraseña()
    {
-            $codigoSecreto=rand(111111,999999);
+      $codigoSecreto=rand(111111,999999);
+      
       if (isset($_POST["emailRe"])) {
          $correo=$_POST["emailRe"];
          $OUsuario= new UsuarioModel();
@@ -58,11 +67,11 @@ class UsuarioController
             $sustituir_nombre = "%nombre_usuario%";
             $por_nombre = trim(utf8_decode($respuesta["usuario"]));
             $body = str_replace($sustituir_nombre, $por_nombre, $body);
-            
+
 
 
             for($i=0;$i<strlen($codigoSecreto);$i++)
-            {  
+            {
                $numero_sustituir= "%".$i."%";
                $numero_ingresar = $valores[$i];
                $body = str_replace($numero_sustituir, $numero_ingresar, $body);
@@ -105,8 +114,11 @@ class UsuarioController
       $OUsuario->setPassword($_POST["new-password"]);
       $respuesta=$OUsuario->modificarPassword();
       if ($respuesta) {
+         $datos="Modificar Password";
+         $descripcion="el usuario ".$_SESSION["nombre_usuario"]." modifico su contraseña";
+         $Obitacora= bitacoraController::crearRegistro($datos,$descripcion,"usuario");
          header("location:index.php?action=inicio");
-         
+
       }
    }
 
@@ -128,7 +140,7 @@ class UsuarioController
       $OUsuario->setId($_POST["id_usuario"]);
       $respuesta = array("data"=>$OUsuario->consultarUsuario());
       echo json_encode($respuesta);
-      
+
    }
 
    public static function modificarUsuarios()
@@ -177,7 +189,7 @@ class UsuarioController
       return $estatus;
    }
 
-   public static function crearUsuarios() 
+   public static function crearUsuarios()
    {
 
       if ($_POST["rol_user"]=="1") {
@@ -204,7 +216,7 @@ class UsuarioController
    {
       $OUsuario=new UsuarioModel();
       $OUsuario->setRol("2");
-      return $OUsuario->contarUsuarios();  
+      return $OUsuario->contarUsuarios();
    }
 
      public static function generarReporteUsuarios() //ESTE METODO ES PARA CONTAR LOS USUARIOS PROPIETARIOS
@@ -212,9 +224,9 @@ class UsuarioController
       $OUsuario=new UsuarioModel();
       $usuarios = $OUsuario->listar('tusuario');
 
-      require_once "src/dompdf/libreria/vendor/autoload.php"; 
+      require_once "src/dompdf/libreria/vendor/autoload.php";
       // instantiate and use the dompdf class
-   
+
       $dompdf = new Dompdf\Dompdf();
       ob_start();
          require_once "views/admin/pdf/reporte_usuarios.php";
@@ -223,9 +235,9 @@ class UsuarioController
       // Render the HTML as PDF
       $dompdf->render();
       // Output the generated PDF to Browser
-      
+
       $dompdf->stream('reporte_usuarios.pdf');
-      
+
 
    }
 

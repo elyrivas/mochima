@@ -22,6 +22,9 @@
 
 	require_once "controllers/gestorGaleria.php";
 	require_once "models/gestorGaleriaModel.php";
+
+	require_once "controllers/bitacoraController.php";
+	require_once "models/bitacoraModel.php";
 	
 
 

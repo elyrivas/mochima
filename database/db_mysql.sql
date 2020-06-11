@@ -19,12 +19,24 @@ CREATE TABLE IF NOT EXISTS tusuario
     PRIMARY KEY (id_usuario)
 )ENGINE=InnoDB;
 
+CREATE TABLE IF NOT EXISTS tbitacora 
+(
+	id_bitacora int AUTO_INCREMENT NOT NULL,
+    accion varchar(30) NOT NULL,
+    descripcion varchar(100) NOT NULL,
+    ip varchar(50) NOT NULL,
+    fecha varchar(10) NOT NULL,
+    usuario_id int, #clave foranea
+	index(usuario_id)
+    PRIMARY KEY (id_bitacora)
+)ENGINE=InnoDB;
+
 
 CREATE TABLE IF NOT EXISTS tofertas(
 	id_oferta int AUTO_INCREMENT NOT NULL,
 	nombre_oferta varchar (60) NOT NULL,
 	descripcion varchar(150) NOT NULL,
-	precio int NOT NULL,
+	precio date NOT NULL,
 	sitio_turistico_id int, #clave foranea
 	index(sitio_turistico_id),
 	PRIMARY KEY (id_oferta)
@@ -66,10 +78,10 @@ CREATE TABLE IF NOT EXISTS tsitios_turisticos(
 	ciudad_id int, #clave foranea
 	tipo_id int, #clave foranea
 	usuario_id int, #clave foranea
+	index(usuario_id),	
 	index(estado_id),
 	index(ciudad_id),	
 	index(tipo_id),	
-	index(usuario_id),	
 	descripcion varchar(150),
 	estatus varchar(20),
 	PRIMARY KEY (id_sitio)
@@ -143,6 +155,10 @@ references tsitios_turisticos (id_sitio);
 alter table ticonos
 add foreign key(galeria_id)
 references tgaleria (id_galeria);
+
+ALTER TABLE tbitacora 
+ADD FOREIGN KEY(usuario_id) 
+REFERENCES tusuario(id_usuario);
 
 alter table tsitios_servicios
 add foreign key(sitio_id)

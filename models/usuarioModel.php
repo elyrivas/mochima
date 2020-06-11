@@ -28,7 +28,7 @@ class UsuarioModel extends Conexion implements templateCrud
    public function __construct() //HEREDA DE LA CLASE CONEXION Y EJECUTA EL CONSTRUCTOR.
    {
       $this->pdo = new Conexion();
-   }  
+   }
 
 //INICIO DE LOS METODOS SET Y GET
 
@@ -150,10 +150,10 @@ class UsuarioModel extends Conexion implements templateCrud
       $salt = substr($initSalt, 0, MAX_LENGTH);
       $passwordHash=hash("sha256", $password . $salt);
       $this->password=$passwordHash;
-    } 
+    }
 //----------------------------------------------------
 
-    
+
 //INICIO DE LOS METODOS DE CRUD
       #Ingreso de usuarios
    public function ingresoUsuarioModel()
@@ -175,11 +175,11 @@ class UsuarioModel extends Conexion implements templateCrud
    public function listar($funcion)
    {
       try {
-      
+
          $stmt = $this->pdo->prepare("SELECT * FROM tusuario");
          $stmt->execute();
          $respuesta = $stmt->fetchAll();
-      
+
          $stmt=null;
          return $respuesta;
       } catch (Exception $e) {
@@ -193,7 +193,7 @@ class UsuarioModel extends Conexion implements templateCrud
          $stmt = $this->pdo->prepare("SELECT * FROM tusuario ORDER BY id_usuario  DESC LIMIT 16");
          $stmt->execute();
          $respuesta = $stmt->fetchAll();
-      
+
          $stmt=null;
          return $respuesta;
       } catch (Exception $e) {
@@ -232,7 +232,9 @@ class UsuarioModel extends Conexion implements templateCrud
    public function modificar()
    {
       try {
-         $stmt = $this->pdo->prepare("UPDATE tusuario SET nombre=:nombre, apellido=:apellido, usuario=:usuario, telefono=:telefono, direccion=:direccion, correo=:correo WHERE id_usuario=:id");
+         $stmt = $this->pdo->prepare("UPDATE tusuario
+                                      SET nombre=:nombre, apellido=:apellido, usuario=:usuario, telefono=:telefono, direccion=:direccion, correo=:correo
+                                      WHERE id_usuario=:id");
          $stmt -> bindParam(":id", $this->id, PDO::PARAM_STR);
          $stmt -> bindParam(":nombre", $this->nombre, PDO::PARAM_STR);
          $stmt -> bindParam(":apellido", $this->apellido, PDO::PARAM_STR);
@@ -241,7 +243,7 @@ class UsuarioModel extends Conexion implements templateCrud
          $stmt -> bindParam(":direccion", $this->direccion, PDO::PARAM_STR);
          $stmt -> bindParam(":correo", $this->email, PDO::PARAM_STR);
          $respuesta=$stmt->execute();
-      
+
          $stmt=null;
          return $respuesta;
       } catch (Exception $e) {
@@ -255,7 +257,7 @@ class UsuarioModel extends Conexion implements templateCrud
          $stmt = $this->pdo->prepare("DELETE FROM tusuario WHERE id_usuario=:id");
          $stmt -> bindParam(":id", $this->id, PDO::PARAM_STR);
          $respuesta=$stmt->execute();
-      
+
          $stmt=null;
          return $respuesta;
       } catch (Exception $e) {
@@ -277,7 +279,7 @@ class UsuarioModel extends Conexion implements templateCrud
          $stmt -> bindParam(":password", $this->password, PDO::PARAM_STR);
          $stmt -> bindParam(":rol", $this->rol, PDO::PARAM_STR);
          $respuesta=$stmt->execute();
-      
+
          $stmt=null;
          return $respuesta;
       } catch (Exception $e) {
@@ -292,23 +294,22 @@ class UsuarioModel extends Conexion implements templateCrud
          $stmt -> bindParam(":rol", $this->rol, PDO::PARAM_STR);
          $stmt->execute();
          $respuesta = $stmt->rowcount();
-      
+
          $stmt=null;
          return $respuesta;
       } catch (Exception $e) {
          return $e->getMessage();
       }
    }
-   
+
    public function modificarPassword()
    {
       try {
          UsuarioModel::encriptPassword($this->password);
          $stmt = $this->pdo->prepare("UPDATE tusuario SET password=:password WHERE id_usuario=:id");
-         $stmt -> bindParam(":id", $this->id, PDO::PARAM_STR);
-         $stmt -> bindParam(":password", $this->password, PDO::PARAM_STR);
+         $stmt -> bindParam(":id", $this->id);
+         $stmt -> bindParam(":password", $this->password);
          $respuesta=$stmt->execute();
-      
          $stmt=null;
          return $respuesta;
       } catch (Exception $e) {

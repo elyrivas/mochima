@@ -1,1 +1,12 @@
 php_value max_execution_time 300
+
+ErrorDocument 404 http://localhost/mochima/404.php
+ErrorDocument 500 http://localhost/mochima/502.php
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} ^/404/$
+RewriteRule ^(.*)$ /404.php [L]
+
+RewriteCond %{REQUEST_URI} ^/500/$
+RewriteRule ^(.*)$ /500.php [L]

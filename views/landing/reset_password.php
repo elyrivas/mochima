@@ -1,7 +1,6 @@
 <?php
 	if (!$_SESSION["reset"]) {
-		echo 'paju';
-		header ("location:index.php?action=inicio");
+		header ("location:401.php");
 		exit();
 	}
 
