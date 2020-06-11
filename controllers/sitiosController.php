@@ -137,6 +137,10 @@
 			foreach ($servicios as $value) {
 				$OSitio->AsignarServicios($value);
 			};
+			$modulo="Sitios Turisticos";
+			$accion="crear sitios";
+			$descripcion="el ".$_SESSION["nombre_usuario"]." creo sitios turisticos";
+			$Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
 			header("location:index.php?action=adminsitio");
 			exit();
 		}
@@ -170,6 +174,12 @@
 				'sitio' => $ultimoSitio,
 				'operation' => true
 			]);
+
+			$modulo="Sitios Turisticos";
+			$accion="crear sitios";
+			$descripcion="el ".$_SESSION["nombre_usuario"]." creo sitio turistico";
+			$Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
+			
 			exit();
 		}
 
@@ -178,6 +188,12 @@
 			$OSitio=new sitiosModel();
 			$OSitio->setRtn($_POST["rtn-eliminar"]);
      		$OSitio->eliminar();
+
+     		$modulo="Sitios Turisticos";
+			$accion="eliminar sitios";
+			$descripcion="el ".$_SESSION["nombre_usuario"]." elimino sitio turistico";
+			$Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
+			
      		if (isset($_POST["misitio"])) {
      			header("location:index.php?action=misitio");
      		} else {
@@ -231,6 +247,11 @@
 		    $OSitio->setDescripcion($_POST["descripcion_editar"]);
 			$OSitio->setEstatus($_POST["estatus_editar"]);
 	   		$OSitio->modificar();
+	   		$modulo="Sitios Turisticos";
+			$accion="Modificar sitios";
+			$descripcion="el ".$_SESSION["nombre_usuario"]." modifico sitio turistico";
+			$Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
+			
 	   		if (isset($_POST["misitio"])) {
 	   			header("location:index.php?action=misitio");
 	   		} else {

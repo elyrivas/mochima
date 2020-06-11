@@ -92,6 +92,14 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
+            <a href="index.php?action=adminbitacora" class="nav-link <?php if ($_GET["action"]=="adminbitacora") {echo "bg-info active";} ?>">
+              <i class="nav-icon ni ni-archive-2"></i>
+              <p>
+                Bitacora
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
             <a href="index.php?action=adminreportes" class="nav-link <?php if ($_GET["action"]=="adminreportes") {echo "bg-info active";} ?>">
               <i class="nav-icon ni ni-book-bookmark"></i>
               <p>

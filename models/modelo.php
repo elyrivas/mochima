@@ -30,6 +30,7 @@ QUE SE ENVIAN POR GET
                $enlacesModels=="adminsitio"||
                $enlacesModels=="adminofertas"||
                $enlacesModels=="adminservicios"||
+               $enlacesModels=="adminbitacora"||
                $enlacesModels=="adminusuarios"||
                $enlacesModels=="adminreportes")
       {

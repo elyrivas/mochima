@@ -132,7 +132,7 @@ class BitacoraModel Extends Conexion{
   {
      try {
      
-        $stmt = $this->pdo->prepare("SELECT * FROM tbitacora");
+        $stmt = $this->pdo->prepare("SELECT * FROM tbitacora, tusuario WHERE tbitacora.usuario_id=tusuario.id_usuario");
         $stmt->execute();
         $respuesta = $stmt->fetchAll();
         $stmt=null;

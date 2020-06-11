@@ -51,5 +51,17 @@
       "autoWidth": true,
     });
 
+    $('#tabla-bitacora').DataTable({
+      "language": {
+        "url": "src/js/es.json"
+      },
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": false,
+      "autoWidth": true,
+    });
+
   });
 </script>

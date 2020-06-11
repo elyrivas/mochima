@@ -153,14 +153,26 @@ class UsuarioController
       $OUsuario->setDireccion($_POST["direccion_editar"]);
       $OUsuario->setTelefono($_POST["telefono_editar"]);
       $OUsuario->setEmail($_POST["email_editar"]);
-      return $OUsuario->modificar();
+      $respuesta=$OUsuario->modificar();
+      if ($respuesta) {
+         $modulo="usuario";
+         $accion="modificar usuario";
+         $descripcion="el ".$_SESSION["nombre_usuario"]." modifico datos de perfil";
+         $Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
+         return $respuesta;
+      }
    }
 
    public static function eliminarUsuarios()
    {
       $OUsuario=new UsuarioModel();
       $OUsuario->setId($_POST["id-eliminar"]);
-      $OUsuario->eliminar();
+      if ($OUsuario->eliminar()) {
+         $modulo="usuario";
+         $accion="Eliminar usuario";
+         $descripcion="el ".$_SESSION["nombre_usuario"]." elimino un usuario";
+         $Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
+      }
       header("location:index.php?action=adminusuarios");
    }
 
@@ -176,12 +188,15 @@ class UsuarioController
       $OUsuario->setPassword($_POST["password_crear"]);
       $OUsuario->setRol("2");
       $estatus=$OUsuario->crear();
-      var_dump($estatus);
 //SI EL REGISTRO SE COMPLETA EL MODELO RETORNA UNA TRUE Y AQUI VALIDO SI ES IGUAL A TRUE LE CREO UNA SESION
       if ($estatus==true) {
          session_start();
          $_SESSION["validar"]=true;
          $_SESSION["id_usuario"]=$estatus;
+         $modulo="usuario";
+         $accion="registro de usuario";
+         $descripcion="el ".$_SESSION["nombre_usuario"]." se registro en el sistema";
+         $Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
          header("location:index.php?action=misitio");
 
       }
@@ -208,7 +223,12 @@ class UsuarioController
       $OUsuario->setUsuario($_POST["usuario_".$rol]);
       $OUsuario->setPassword($_POST["password_".$rol]);
       $OUsuario->setRol($_POST["rol_user"]);
-      $estatus=$OUsuario->crear();
+      if ($estatus=$OUsuario->crear()) {
+         $modulo="usuario";
+         $accion="Registro de usuario";
+         $descripcion="el ".$_SESSION["nombre_usuario"]." registro un usuario";
+         $Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
+      }
       return $estatus;
    }
 

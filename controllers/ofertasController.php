@@ -9,6 +9,10 @@ class OfertaController
       $Oferta->setId($_POST["sitio_crear"]);
       $Oferta->setContenido($_POST["contenidoOferta"]);
       $Oferta->crearOfertaModel();
+      $modulo="oferta";
+      $accion="crear oferta";
+      $descripcion="el ".$_SESSION["nombre_usuario"]." creo una oferta";
+      $Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
       header("location:index.php?action=ofertas");
       
    }
@@ -39,7 +43,10 @@ class OfertaController
       $Oferta=new GestorOfertaModel();
       $Oferta->setId($_POST["id-eliminar"]);
       $Oferta->eliminarOfertaModel();
-
+      $modulo="oferta";
+      $accion="eliminar oferta";
+      $descripcion="el ".$_SESSION["nombre_usuario"]." elimino una oferta";
+      $Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
         if ($_GET["action"]=="ofertas")
         {
              header("location:index.php?action=ofertas");
@@ -68,7 +75,10 @@ class OfertaController
       $Oferta->setSitio($_POST["sitio_editar"]);
       $Oferta->setContenido($_POST["contenido_editar"]);
       $Oferta->modificarOfertas();
-          
+      $modulo="oferta";
+      $accion="modifico oferta";
+      $descripcion="el ".$_SESSION["nombre_usuario"]." modifico una oferta";
+      $Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
    }
 
 

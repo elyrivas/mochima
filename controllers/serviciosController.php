@@ -7,6 +7,11 @@ class ServiciosController
       $Oservicio->setNombre($_POST["nombre_servicio"]);
       $Oservicio->setDescripcion($_POST["descripcion_servicio"]);
       $Oservicio->crearServicioModel();
+      $modulo="servicios";
+      $accion="crear servicios";
+      $descripcion="el ".$_SESSION["nombre_usuario"]." creo servicio";
+      $Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
+         
       header("location:index.php?action=adminservicios");
       
    }
@@ -40,6 +45,11 @@ class ServiciosController
       $Oservicio=new GestorServicioModel();
       $Oservicio->setId($_POST["id-eliminar"]);
       $Oservicio->eliminarServicioModel();
+      $modulo="servicio";
+      $accion="eliminar servicio";
+      $descripcion="el ".$_SESSION["nombre_usuario"]." elimino un servicio";
+      $Obitacora= bitacoraController::crearRegistro($accion,$descripcion,$modulo);
+         
       header("location:index.php?action=adminservicios");
            
    }
@@ -49,6 +59,9 @@ class ServiciosController
       $Oservicio=new GestorServicioModel();
       $Oservicio->setId($_POST["id-eliminar"]);
       $Oservicio->eliminarPropietarioModel();
+      $modulo="servicio";
+      $accion="eliminar servicio";
+      $descripcion="el ".$_SESSION["nombre_usuario"]." elimino un servicio";
       header("location:index.php?action=servicios");
            
    }
@@ -69,6 +82,9 @@ class ServiciosController
       $Oservicio->setNombre($_POST["nombre_editar"]);
       $Oservicio->setDescripcion($_POST["descripcion_editar"]);
       $Oservicio->modificarServicioModel();
+      $modulo="servicio";
+      $accion="modificar servicio";
+      $descripcion="el ".$_SESSION["nombre_usuario"]." modifico un servicio";
           
    }
 
